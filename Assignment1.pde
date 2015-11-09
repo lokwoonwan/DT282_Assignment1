@@ -10,13 +10,13 @@ void setup()
 void loadData()
 {
    //variable to show size of tables
-  int SIZE = 0;
+  //int SIZE = 0;
   
   //Load data from table
   AirPollution = loadTable("BeijingAprilData.csv", "header");
-  SIZE = AirPollution.getRowCount(); //how many rows
+  //SIZE = AirPollution.getRowCount(); //how many rows
   
-  println(SIZE + " total rows in table"); 
+  //println(SIZE + " total rows in table"); 
 
   for (TableRow row : AirPollution.rows()) 
   {
@@ -28,7 +28,7 @@ void loadData()
     int value = row.getInt("Value");
     String unit = row.getString("Unit");
     
-    println("Air pollution in " + location + " on " + day + " " + month + " " + year + " is " + value +unit);
+    println("Air pollution in " + location + " on " + day + "/" + month + "/" + year + " is " + value +unit);
   }//end for each
   
   /*String[] lines = loadStrings("");
