@@ -8,15 +8,9 @@ void setup()
 }
 
 void loadData()
-{
-   //variable to show size of tables
-  //int SIZE = 0;
-  
+{ 
   //Load data from table
   AirPollution = loadTable("BeijingAprilData.csv", "header");
-  //SIZE = AirPollution.getRowCount(); //how many rows
-  
-  //println(SIZE + " total rows in table"); 
 
   for (TableRow row : AirPollution.rows()) 
   {
