@@ -17,5 +17,4 @@ My first graph is a trend graph. It represents the fluctuations in the air pollu
 My second graph is a donut graph. From this graph, it is very easy to see what the average amount of air pollution is. The graph is colour coordinated so you can see if Beijing's air pollution is unsafe, moderate or safe on average at a glance.
 
 
-
-// In my comments, I do have a third method called smog(). It is something that I would like to work on in my spare time. Please ignore it.
+My third graph is a smog graph. It has beakers at the bottom of the background with "smog particles" collecting into the beakers. The figures shown are the average weekly amounts of smog collected."

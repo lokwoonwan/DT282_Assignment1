@@ -71,14 +71,14 @@ void menu()
       textAlign(CENTER);
       stroke(0);
       textSize(50);
-      fill (255, 0, 0);
+      fill (255);
       text(" Menu ", width/2, height/2 - 100);
       textSize(20);
       fill(0, 255, 0);
       text(" Press 0 for the menu", width/2, height/2 - 50);
       text(" Press 1 for the Trend Graph", width/2, height/2);
       text(" Press 2 for the Donut Graph", width/2, height/2 + 50);
-      //text(" Press 3 for the Smog Graph", width/2, height/2 + 100);
+      text(" Press 3 for the Smog Graph", width/2, height/2 + 100);
       break;
     }// End case 0
     
@@ -96,13 +96,13 @@ void menu()
       break;
     }// End case 2
 
-/*
+
   case 3:
     {
       smog(); //Calling method
       break;
     }
-    */
+    
   }// end switch
   
 }// end menu() method
@@ -198,7 +198,6 @@ void drawLineGraph()
 }//end drawLineGraph() method
 
 // ----- 2nd GRAPH -----//
-/*
 void smog()
 {
   background (125);
@@ -210,17 +209,51 @@ void smog()
   ellipse(width/2, 0, 400, 350);
   ellipse (width/1.2, 0, 350, 300);
 
-
-
-  // Draw beaker
-  int x = 15;
-  int y = 760;
-  int z = width;
   
-  line (x, y, x +
-   
-}
-*/
+
+// Average for the week
+  float sum = 0;
+  float[] average = new float[4]; //float array
+  int k=0;
+
+  for (int i = 0; i < BPollution.size(); i += 180, k++) //does not revert back to 0
+  {
+    sum = 0;
+    for (int j = i; j <= i + 179; j ++)
+    {
+      sum += BPollution.get(j).value;
+    }//end for()
+    average[k] = sum/180;
+    //println(average[k]);
+  }
+  
+  // Snowflakes falling
+      for (int i = fallingChars.size ()-1; i >= 0; i--) // Falling snowflakes
+      {   
+        // ArrayList doesn't know what it's storing so, cast the object coming out
+        fallingStar fc = (fallingStar) fallingChars.get(i);
+
+        fc.fall(); // class
+        fc.display(); // class
+      }// End for()
+
+      int x = (int)random(4);
+      for (int j = 0; j < x; j++)
+      {
+        CreateChar(4);  // top 1/4th
+        CreateChar(8);  // top 1/8th
+      }// End for()
+  // Draw beaker
+  for (int i = 0; i <4; i++)
+  {
+    fill(255, 0, 0);
+    rect((i + 1)* 150,height - 150, 100, 100, 3, 6, 12, 18);
+    text(average[i], (i+1) * 160, height - 160);
+    fill(0);
+    text("week" + (i+1), (i+1) * 160, height - 130);
+  }
+  
+}// end smog() method
 
 void donut()
 {
@@ -237,7 +270,6 @@ void donut()
       sum += BPollution.get(j).value;
     }//end for()
     average[k] = sum/24;
-
     //println (average[k]);
   }//end outer for()
 
@@ -305,7 +337,7 @@ void donut()
 // ----- MENU -----//
 void keyPressed() // User's graph selection
 {
-  if (key >= '0' && key <='2')
+  if (key >= '0' && key <='3')
   {
     mode = key - '0';
   }// end if
