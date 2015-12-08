@@ -1,7 +1,8 @@
+// class for falling snowflakes
 class fallingStar {
   int mx;
   float my;
-  int mAlpha;
+  //int mAlpha;
   float mSize;
 
   //constructor
@@ -9,7 +10,7 @@ class fallingStar {
   {
     mx = x;
     my = y;
-    mSize = random(14);
+    mSize = random(14); //creates randomly sized flakes
   }
 
   void display()
@@ -20,7 +21,7 @@ class fallingStar {
 
   void fall()
   {
-    mAlpha = mAlpha - 1;
+    //mAlpha = mAlpha - 1;
     my = my + 1 + mSize / 5;
   }
 }
