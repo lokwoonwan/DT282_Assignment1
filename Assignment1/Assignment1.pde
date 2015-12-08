@@ -186,7 +186,7 @@ void drawLineGraph()
     fill(255, 0, 0);
 
     int i = (int) map(mouseX, border, width - border, 0, average.length - 1);
-    println("i = " + i);
+    //println("i = " + i);
     float y = map(average[i], 0, dataRange, height - border, border);
     float x1 = map(i, 0, average.length, border, border + windowRange);
     ellipse(x1, y, 5, 5);
